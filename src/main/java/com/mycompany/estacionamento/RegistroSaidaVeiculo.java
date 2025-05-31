@@ -10,10 +10,16 @@ import javax.swing.table.DefaultTableModel;
 public class RegistroSaidaVeiculo extends javax.swing.JFrame {
 
     
-    public RegistroSaidaVeiculo() {
+    private static final long serialVersionUID = 1L;
+	public RegistroSaidaVeiculo() {
         initComponents();
         carregarMovimento();
     }
+	
+	private String message = "";
+	public String getMessage() {
+		return message;
+	}
     
     private void carregarMovimento() {
         DefaultTableModel model = new DefaultTableModel();
@@ -217,6 +223,7 @@ public class RegistroSaidaVeiculo extends javax.swing.JFrame {
         if(valor != null){
             dao.atualizarMovimento(valor, id);
             jLabel6.setText("Saída confirmada!");
+            message = "Saída Confirmada";
             carregarMovimento();
             jLabel3.setText("");
             jLabel5.setText("");
@@ -261,16 +268,16 @@ public class RegistroSaidaVeiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    public javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }

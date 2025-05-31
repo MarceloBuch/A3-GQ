@@ -14,7 +14,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CadastroVeiculo extends javax.swing.JFrame {
 
-    /**
+    private static final long serialVersionUID = 1L;
+	/**
      * Creates new form CadastroVeiculo
      */
     public CadastroVeiculo() {
@@ -36,7 +37,12 @@ public class CadastroVeiculo extends javax.swing.JFrame {
         jTextField2.setText(jTable1.getValueAt(linhaSelecionada, 1).toString());
         jTextField3.setText(jTable1.getValueAt(linhaSelecionada, 2).toString());
     }
-    
+
+    private String mensagem = "";
+
+    public String getMessage() {
+        return mensagem;
+    }
     
     private void carregarVeiculo() {
         DefaultTableModel model = new DefaultTableModel();
@@ -283,10 +289,11 @@ public class CadastroVeiculo extends javax.swing.JFrame {
             IDCliente = (int) jTable2.getValueAt(linhaSelecionada, 0);
             Veiculo auto = new Veiculo(placa, model, color, IDCliente);
             dao.inserirVeiculo(auto);
-            jLabel6.setText("Veículo criado com sucesso");
+            jLabel6.setText("Veículo cadastrado com sucesso");
             jTextField1.setText("");
             jTextField2.setText("");
-            jTextField3.setText("");            
+            jTextField3.setText("");  
+            mensagem = "Veículo cadastrado com sucesso";
             carregarVeiculo();           
         }
         
@@ -373,7 +380,7 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -382,13 +389,13 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
+    public javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    public javax.swing.JTable jTable2;
+    public javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

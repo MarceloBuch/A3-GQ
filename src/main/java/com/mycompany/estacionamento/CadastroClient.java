@@ -13,13 +13,15 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CadastroClient extends javax.swing.JFrame {
 
-    /**
+    private static final long serialVersionUID = 1L;
+	/**
      * Creates new form CadastroClient
      */
     public CadastroClient() {
         initComponents();
         carregarCliente();
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseEvent(evt);
             }
@@ -32,6 +34,12 @@ public class CadastroClient extends javax.swing.JFrame {
         jTextField1.setText(jTable1.getValueAt(linhaSelecionada, 1).toString());
         jTextField2.setText(jTable1.getValueAt(linhaSelecionada, 2).toString());
         jTextField3.setText(jTable1.getValueAt(linhaSelecionada, 3).toString());
+    }
+    
+    public String mensagem = "";
+
+    public String getMensagem() {
+        return mensagem;
     }
     
     private void carregarCliente() {
@@ -101,12 +109,6 @@ public class CadastroClient extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
-            }
-        });
-
-        jTextField3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField3ActionPerformed(evt);
             }
         });
 
@@ -238,10 +240,6 @@ public class CadastroClient extends javax.swing.JFrame {
         form.setVisible(true);
     }//GEN-LAST:event_jButton2ActionPerformed
 
-    private void jTextField3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField3ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField3ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         String name = jTextField1.getText();
         String phone = jTextField2.getText();
@@ -257,6 +255,7 @@ public class CadastroClient extends javax.swing.JFrame {
             jTextField1.setText("");
             jTextField2.setText("");
             jTextField3.setText("");
+            mensagem = "Cliente cadastrado com sucesso";
             carregarCliente();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -344,7 +343,7 @@ public class CadastroClient extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -352,12 +351,12 @@ public class CadastroClient extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
+    public javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    public javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

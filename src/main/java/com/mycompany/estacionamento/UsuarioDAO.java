@@ -76,7 +76,7 @@ public class UsuarioDAO {
     }
 
     public boolean verificarLogin(String nomeUsuario, String senhaUsuario) {
-        String sql = "SELECT * FROM usuario WHERE nomeUsuario = ? AND senhaUsuario = ?";
+        String sql = "SELECT nomeUsuario FROM usuario WHERE nomeUsuario = ? AND senhaUsuario = ?";
 
         try (Connection conn = DatabaseConnection.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
@@ -84,8 +84,12 @@ public class UsuarioDAO {
             stmt.setString(1, nomeUsuario);
             stmt.setString(2, senhaUsuario);
             ResultSet rs = stmt.executeQuery();
-
-            return true; 
+            
+            if(rs.next()) {
+            	return true;
+            }else {
+            	return false;
+            }
 
         } catch (Exception e) {
             e.printStackTrace();

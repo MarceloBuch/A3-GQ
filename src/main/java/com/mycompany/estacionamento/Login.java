@@ -10,11 +10,17 @@ package com.mycompany.estacionamento;
  */
 public class Login extends javax.swing.JFrame {
 
-    /**
+    private static final long serialVersionUID = 1L;
+	/**
      * Creates new form Login
      */
     public Login() {
         initComponents();
+    }
+    
+    private String message = "";
+    public String getMessage() {
+    	return message;
     }
 
     /**
@@ -102,7 +108,7 @@ public class Login extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         UsuarioDAO dao = new UsuarioDAO();
         String user = jTextField1.getText();
-        String password = jPasswordField1.getPassword().toString();
+        String password = new String(jPasswordField1.getPassword());
         Boolean check = dao.verificarLogin(user, password);
         
         if(check){
@@ -111,6 +117,7 @@ public class Login extends javax.swing.JFrame {
             form.setVisible(true);
         }else{
             jLabel4.setText("Usuário ou senha inválidos");
+            message = "Usuário ou senha inválidos";
             jTextField1.setText("");
             jPasswordField1.setText("");
         }
@@ -154,12 +161,12 @@ public class Login extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
-    private javax.swing.JPasswordField jPasswordField1;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JPasswordField jPasswordField1;
+    public javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }

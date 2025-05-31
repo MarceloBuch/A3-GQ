@@ -13,7 +13,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class CadastroUsuario extends javax.swing.JFrame {
 
-    /**
+    private static final long serialVersionUID = 1L;
+	/**
      * Creates new form CadastroUsuario
      */
     public CadastroUsuario() {
@@ -33,6 +34,11 @@ public class CadastroUsuario extends javax.swing.JFrame {
         jTextField1.setText(jTable1.getValueAt(linhaSelecionada, 1).toString());
         jTextField2.setText(jTable1.getValueAt(linhaSelecionada, 2).toString());
         jTextField3.setText(jTable1.getValueAt(linhaSelecionada, 2).toString());
+    }
+    
+    private String message = "";
+    public String getMessage() {
+    	return message;
     }
     
     private void carregarUsuario() {
@@ -245,6 +251,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
             Usuario usr1 = new Usuario(user, password);
             dao.inserirUsuario(usr1);
             jLabel5.setText("Usuário incluído com sucesso!");
+            message = "Usuário inserido com sucesso";
             carregarUsuario();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
@@ -334,7 +341,7 @@ public class CadastroUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -346,8 +353,8 @@ public class CadastroUsuario extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
-    private javax.swing.JTextField jTextField3;
+    public javax.swing.JTextField jTextField1;
+    public javax.swing.JTextField jTextField2;
+    public javax.swing.JTextField jTextField3;
     // End of variables declaration//GEN-END:variables
 }

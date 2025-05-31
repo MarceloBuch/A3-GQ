@@ -14,7 +14,8 @@ import javax.swing.table.DefaultTableModel;
  */
 public class RegistroEntradaVeiculo extends javax.swing.JFrame {
 
-    /**
+    private static final long serialVersionUID = 1L;
+	/**
      * Creates new form RegistroEntradaVeiculo
      */
     public RegistroEntradaVeiculo() {
@@ -22,6 +23,7 @@ public class RegistroEntradaVeiculo extends javax.swing.JFrame {
         carregarVeiculo();
         
         jTable1.addMouseListener(new java.awt.event.MouseAdapter() {
+            @Override
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jTable1MouseEvent(evt);
             }
@@ -33,6 +35,11 @@ public class RegistroEntradaVeiculo extends javax.swing.JFrame {
         int linhaSelecionada = jTable1.getSelectedRow();
         
         jTextField1.setText(jTable1.getValueAt(linhaSelecionada, 0).toString());
+    }
+    
+    private String message = "";
+    public String getMessage() {
+    	return message;
     }
     
     
@@ -181,6 +188,7 @@ public class RegistroEntradaVeiculo extends javax.swing.JFrame {
             Movimento mov = new Movimento(placa);
             dao.inserirMovimento(mov);
             jLabel3.setText("Entrada confirmada!");
+            message = "Entrada confirmada!";
         }else{
             jLabel3.setText("Veiculo não cadastrado");
         }
@@ -222,13 +230,13 @@ public class RegistroEntradaVeiculo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    public javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
-    private javax.swing.JTextField jTextField1;
+    public javax.swing.JTable jTable1;
+    public javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
 }
