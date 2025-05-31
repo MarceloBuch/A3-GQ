@@ -197,10 +197,10 @@ public class RegistroSaidaVeiculo extends javax.swing.JFrame {
                 horas = minutos / 60;
             }
             
-            minutos = minutos % 60;
-            
             double valor = minutos * 0.5; 
 
+            minutos = minutos % 60;
+            
             jLabel3.setText(horas + "h " + minutos + "min");
             
             String valorStr = String.valueOf(valor);
