@@ -17,10 +17,6 @@ public class Usuario {
         this.senhaUsuario = senhaUsuario;
     }
 
-    public Usuario(String nome) {
-        this.nomeUsuario = nome;
-    }
-
     public int getIdUsuario() { return idUsuario; }
     public String getNomeUsuario() { return nomeUsuario; }
     public String getSenhaUsuario() { return senhaUsuario; }
